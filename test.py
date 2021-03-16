@@ -8,5 +8,9 @@ price = '499$'
 
 name = 'PlayStation 5 Console'
 
-mainScript.mainLoop(url,platform,price,name)
+inStockKeywords = ["delivery","pick up","in stock","add to cart"]
+
+outStockKeywords = ["sold out","out of stock","coming soon"]
+
+mainScript.mainLoop(url,platform,price,name,inStockKeywords,outStockKeywords)
 

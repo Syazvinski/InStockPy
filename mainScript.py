@@ -37,26 +37,25 @@ driver = webdriver.Chrome(ChromeDriverManager().install(), chrome_options=option
 
 
 #gets in stock or not in stock status
-def getStat(url):
+def getStat(url,inStockKeywords,outStockKeywords):
 
     #go to page
     driver.get(url)
 
     #get all text from body
-    pageText = driver.find_element_by_tag_name('body').lower()
-
-    #plit all texta at newline
-    pageText = pageText.text.split('\n')
+    pageText = driver.find_element_by_tag_name('body').text.lower().split('\n')
 
     #defining in stock
     isSoldOut = False
 
     #checking for "in stock" or "out of stock" text on page
     for i in pageText:
-        if i == "sold out" or i == "out of stock" or i == "coming soon":
-            isSoldOut = True
-        elif i == "delivery" or i == "pick up" or i == "in stock" or i == "add to cart":
-            isSoldOut = False
+        for x in outStockKeywords:
+            if x == i:
+                isSoldOut = True
+        for z in inStockKeywords:
+            if z == i:
+                isSoldOut = False
 
         #return result 
     return(isSoldOut)
@@ -68,7 +67,7 @@ def logInStock(name,platform,price):
     f.close()
 
 
-def mainLoop(url,platform,price,name):
+def mainLoop(url,platform,price,name,inStockKeywords,outStockKeywords):
 
     #defining var
     wasInStock = False
@@ -81,7 +80,7 @@ def mainLoop(url,platform,price,name):
         print(Fore.WHITE +"Checking...")
 
         #get status
-        isSoldOut = getStat(url)
+        isSoldOut = getStat(url,inStockKeywords,outStockKeywords)
 
         #if its in stock
         if isSoldOut == False:
