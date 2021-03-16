@@ -9,3 +9,5 @@
 (Target),499$,PlayStation 5 Console,03/16 13:16 EST
 (Target),399$,PlayStation 5 Digital Edition Console,03/16 13:16 EST
 (Target),499$,PlayStation 5 Console,03/16 13:29 EST
+(Target),499$,PlayStation 5 Console,03/16 15:08 EST
+(Target),499$,PlayStation 5 Console,03/16 15:19 EST
