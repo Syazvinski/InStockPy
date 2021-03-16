@@ -1,6 +1,6 @@
 # In-Stock Bot
 
-This bot allows you to check if any item is in stock on any website.
+This bot allows you to check if any item is in stock on any website with proxy funcionality.
 
 ## Installation
 
@@ -43,8 +43,11 @@ inStockKeywords = ["delivery","pick up","in stock","add to cart"]
 #keywords to check page for to determine if item is out of stock  KEEP LOWERCASE
 outStockKeywords = ["sold out","out of stock","coming soon"]
 
+#Set this to True if you would like to use proxies. Proxies can be edited in the proxys.txt file.
+useProxys = True
+
 #function to call to loop check if in stock
-mainScript.mainLoop(url,platform,price,name,inStockKeywords,outStockKeywords)
+mainScript.mainLoop(url,platform,price,name,inStockKeywords,outStockKeywords,useProxys)
 ```
 
 ## Contributing
