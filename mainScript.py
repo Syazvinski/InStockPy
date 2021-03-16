@@ -43,7 +43,7 @@ def getStat(url):
     driver.get(url)
 
     #get all text from body
-    pageText = driver.find_element_by_tag_name('body')
+    pageText = driver.find_element_by_tag_name('body').lower()
 
     #plit all texta at newline
     pageText = pageText.text.split('\n')
@@ -53,9 +53,9 @@ def getStat(url):
 
     #checking for "in stock" or "out of stock" text on page
     for i in pageText:
-        if i == "Sold out":
+        if i == "sold out" or i == "out of stock" or i == "coming soon":
             isSoldOut = True
-        elif i == "Delivery" or i == "Pick up" or i == "In Stock":
+        elif i == "delivery" or i == "pick up" or i == "in stock" or i == "add to cart":
             isSoldOut = False
 
         #return result 
