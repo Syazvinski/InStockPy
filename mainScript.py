@@ -31,16 +31,25 @@ options.add_argument('--headless')  #headless mode
 options.add_argument('--disable-gpu')  # Last I checked this was necessary.
 options.add_argument('log-level=3')   #stops nitifications from coming through
 
-
-#defining our driver
-driver = webdriver.Chrome(ChromeDriverManager().install(), chrome_options=options)
-
-
 #gets in stock or not in stock status
 def getStat(url,inStockKeywords,outStockKeywords):
 
-    #go to page
-    driver.get(url)
+    try:
+        #go to page
+        driver.get(url)
+    except:
+                print(Fore.RED+"FATAL PROXY ERROR")
+                
+                options = Options()
+                options.add_argument('--headless')  #headless mode
+                options.add_argument('--disable-gpu')  # Last I checked this was necessary.
+                options.add_argument('log-level=3')   #stops nitifications from coming through
+
+                #defining our driver
+                driver = webdriver.Chrome(ChromeDriverManager().install(), chrome_options=options)
+
+                #go to page
+                driver.get(url)
 
     #get all text from body
     pageText = driver.find_element_by_tag_name('body').text.lower().split('\n')
@@ -67,13 +76,60 @@ def logInStock(name,platform,price):
     f.close()
 
 
-def mainLoop(url,platform,price,name,inStockKeywords,outStockKeywords):
+def mainLoop(url,platform,price,name,inStockKeywords,outStockKeywords,useProxys):
+    global driver
 
     #defining var
     wasInStock = False
 
+    #amount of runs and index
+    runs = 0
+    m = 0
+    i = 0
+    
     #loops forever
     while True:
+        
+
+        #determines weather to use proxy and cyles through them if so.
+        if useProxys == True:
+
+            #defining proxy list
+            proxys = []
+
+            #open and store log file
+            with open('proxys.txt') as f:
+                for line in f:
+                    proxys.append(line)
+
+            #gets length of proxys
+            amountOfProxys = len(proxys)
+            
+            #checking if 3 uses have passed
+            if m == 3:
+                m = 0
+                i += 1
+            else:
+                m += 1
+
+            #if end of list reached restart
+            if runs == amountOfProxys:
+                i = 0
+                
+            #settting proxy to i
+            PROXY = proxys[i]
+
+            #adding use proxy to chrome options
+            options.add_argument('--proxy-server=%s' % PROXY)#adds use proxy argument to options
+            
+            #defining our driver
+            driver = webdriver.Chrome(ChromeDriverManager().install(), chrome_options=options)
+            
+                
+        else:
+            #defining our driver
+            driver = webdriver.Chrome(ChromeDriverManager().install(), chrome_options=options)
+
 
         #print "checking"
         print(Fore.CYAN + platform+ name)
@@ -106,6 +162,9 @@ def mainLoop(url,platform,price,name,inStockKeywords,outStockKeywords):
             print(Fore.CYAN + platform +name)
             print(Fore.RED +"Out Of Stock")
             wasInStock = False
+
+        #close driver
+        driver.close()
 
         #wait
         time.sleep(1.5)
