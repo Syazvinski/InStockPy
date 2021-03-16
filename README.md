@@ -4,7 +4,7 @@ This bot allows you to check if any item is in stock on any website.
 
 ## Installation
 
-Just download this project as a zip and extract it.
+Just download this project as a zip and extract it. Then open the example file and give it a run.
 
 ## Prerequisites
 python 3+
