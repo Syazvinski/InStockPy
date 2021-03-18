@@ -19,6 +19,8 @@ python 3+
 
 `pip install chromedriver-py` for selenium
 
+`pip install webdriver_manager` also for selenium
+
 
 ## Usage
 
