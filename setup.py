@@ -1,7 +1,6 @@
 from distutils.core import setup
 
-import io
-with io.open("README.md", "r", encoding="utf-8") as fh:
+with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setup(
