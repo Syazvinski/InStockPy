@@ -7,7 +7,7 @@ Using InStockPy, you can check weather any item is in stock by using keywords to
 ###  Python 3+ required
 `pip install In-Stock-Py`
 
-## Usage Wthout Loops
+## Usage Without Loops
 
 The program below will return weather or not an item is in stock based off of keywords defined below.
 
