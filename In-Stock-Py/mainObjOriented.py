@@ -7,10 +7,8 @@ from selenium.webdriver.chrome.options import Options
 #chromedriver
 from webdriver_manager.chrome import ChromeDriverManager
 
-
 #colored print line
 from colorama import init, Fore, Back, Style
-init(convert=True)
 
 #date and time
 from datetime import datetime
