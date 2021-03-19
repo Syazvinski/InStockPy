@@ -13,30 +13,38 @@ Class creation example
 
 ### Debug Mode
 Debug mode needs to be called before any other function in order for it to work
+
 `a.debug(<Bool>)` 
 
 ### Headless mode
 Set this to true if you dont want to see the chrome window when the script is checking an item.
+
 `a.headless(<Bool>)`
 
 ### Define Keywords for an in stock item
 Put keyword here that mean an item is in stock.
+
 `a.defInStockKeywords(["add to cart","in stock"])`
 
 ### Define Keywords for an out of stock item
 Put keyword here that mean an item is out of stock.
+
 `a.defInStockKeywords(["unavaliable","out of stock"])`
 
 ### Sound notifiations when an item is in stock
 Set path to 'default' if you want to use the default sound.
+
 `a.audioCue(<Bool>,'C:\path\to\mp3')`
 
 ### Use proxies
+When true, InStockPy will use proxies written in a .txt file. It will resue the proxy however many times specified.
+
 `a.useProxy(<Bool>, r"C:\path\to\prox.txt",<int [amount of times to reuse proxy]>)`
 
 ### Check if in stock
 Set link that you want to check.
 Returns <Bool>, True = In Stock, False = Out of stock, None = no keywords found on page
+    
 `a.checkInStock(r'https://link-to-product.com')`
 
 ### Final cleanup
