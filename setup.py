@@ -1,14 +1,21 @@
 from distutils.core import setup
+
+import io
+with io.open("README.md", "r", encoding="utf-8") as fh:
+    long_description = fh.read()
+
 setup(
-  name = 'In-Stock-Py',         # How you named your package folder (MyLib)
-  packages = ['In-Stock-Py'],   # Chose the same as "name"
-  version = '0.1.4',      # Start with a small number and increase it with every change you make
+  name = 'InStockPy',         # How you named your package folder (MyLib)
+  packages = ['InStockPy'],   # Chose the same as "name"
+  version = '0.1.5',      # Start with a small number and increase it with every change you make
   license='MIT',        # Chose a license from here: https://help.github.com/articles/licensing-a-repository
   description = 'Checks if an item is in stock based off of keywords.',   # Give a short description about your library
+  long_description=long_description,
+  long_description_content_type="text/markdown",
   author = 'Stephan Yazvinski',                   # Type in your name
   author_email = 'syazivnski@gmail.com',      # Type in your E-Mail
-  url = 'https://github.com/Syazvinski/In-Stock-Bot',   # Provide either the link to your github or to your website
-  download_url = 'https://github.com/Syazvinski/In-Stock-Py/archive/refs/tags/0.1.3.tar.gz',    # I explain this later on
+  url = 'https://github.com/Syazvinski/InStockPy',   # Provide either the link to your github or to your website
+  download_url = 'https://github.com/Syazvinski/In-Stock-Py/archive/refs/tags/0.1.5.tar.gz',    # I explain this later on
   keywords = ['In', 'Stock', 'Checker','Proxy','Selenium','In Stock'],   # Keywords that define your package best
   install_requires=[            # I get to this in a second
           'selenium',
