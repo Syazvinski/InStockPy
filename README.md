@@ -1,56 +1,112 @@
-# In-Stock Bot
+# InStockPy
 
-This bot allows you to check if any item is in stock on any website with proxy funcionality.
+Using InStockPy, you can check weather any item is in stock by using keywords to determine if an item is in stock. InStockPy has support for proxies to bypass anti bot protection.
 
 ## Installation
 
-Just download this project as a zip and extract it. Then open the example file and give it a run.
+###  Python 3+ required
+`pip install In-Stock-Py`
 
-## Prerequisites
-python 3+
+## Usage Without Loops
 
-`pip install selenium` for web parsing
-
-`pip install colorama` for colored console
-
-`pip install pyttsx3` for tts
-
-`pip install playsound` for alert sound
-
-`pip install chromedriver-py` for selenium
-
-`pip install webdriver_manager` also for selenium
-
-
-## Usage
+The program below will return weather or not an item is in stock based off of keywords defined below.
 
 ```python
-import mainScript
+import InStockPy
 
-#url to check for stock
-url = 'https://www.target.com/p/playstation-5-console/-/A-81114595'
+#ceating class instance
+a = InStockPy.main()
 
-#website name(for tts and console alerts)
-platform = '(Target)'
+#headless mode true
+a.headless(True)
 
-#price of product (for tts and console alerts)
-price = '499$'
+#def in stock keywords
+a.defInStockKeywords(["delivery","in stock","add to cart"])
 
-#name of product (for tts and console alerts)
-name = 'PlayStation 5 Console'
+#def out of stock keywords
+a.defOutStockKeywords(["sold out","out of stock","coming soon"])
 
-#keywords to check page for to determine if item is in stock  KEEP LOWERCASE
-inStockKeywords = ["delivery","pick up","in stock","add to cart"]
+#check if in stock and print result
+print(a.checkInStock(r'https://link-to-product.com')))
 
-#keywords to check page for to determine if item is out of stock  KEEP LOWERCASE
-outStockKeywords = ["sold out","out of stock","coming soon"]
-
-#Set this to True if you would like to use proxies. Proxies can be edited in the proxys.txt file.
-useProxys = True
-
-#function to call to loop check if in stock
-mainScript.mainLoop(url,platform,price,name,inStockKeywords,outStockKeywords,useProxys)
+#preforming final cleanup
+a.cleanup() 
 ```
+
+## Usage With Loops
+The usage below uses a while true loop to check if an item is in stock forever. It uses proxys to bypass bot protection and plays an alarm sound when it is in stock.  
+```python
+import InStockPy
+
+#ceating class instance
+a = InStockPy.main()
+
+#debug mode true
+a.debug(True)
+
+#headless mode true
+a.headless(True)
+
+#def in stock keywords
+a.defInStockKeywords(["delivery","in stock","add to cart"])
+
+#def out of stock keywords
+a.defOutStockKeywords(["sold out","out of stock","coming soon"])
+
+#play audio when in stock
+a.audioCue(True,'default')
+
+while True:
+    #use proxies true
+    a.useProxy(True, r"C:\Users\proxies.txt",1)
+
+    #check if in stock and print result
+    print(a.checkInStock(r'https://link-to-product.com')))
+````
+
+## Functions & Classes
+Class creation example
+`a = InStockPy.main()`
+
+### Debug Mode
+Debug mode needs to be called before any other function in order for it to work
+
+`a.debug(<Bool>)` 
+
+### Headless mode
+Set this to true if you dont want to see the chrome window when the script is checking an item.
+
+`a.headless(<Bool>)`
+
+### Define Keywords for an in stock item
+Put keyword here that mean an item is in stock.
+
+`a.defInStockKeywords(["add to cart","in stock"])`
+
+### Define Keywords for an out of stock item
+Put keyword here that mean an item is out of stock.
+
+`a.defInStockKeywords(["unavaliable","out of stock"])`
+
+### Sound notifiations when an item is in stock
+Set path to 'default' if you want to use the default sound.
+
+`a.audioCue(<Bool>,'C:\path\to\mp3')`
+
+### Use proxies
+When true, InStockPy will use proxies written in a .txt file. It will resue the proxy however many times specified.
+
+`a.useProxy(<Bool>, r"C:\path\to\prox.txt",<int [amount of times to reuse proxy]>)`
+
+### Check if in stock
+Set link that you want to check.
+Returns <Bool>, True = In Stock, False = Out of stock, None = no keywords found on page
+    
+`a.checkInStock(r'https://link-to-product.com')`
+
+### Final cleanup
+`a.cleanup()` Closes webdriver, open threads, etc.
+
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change. Add me on discord `Zexter#0323`
