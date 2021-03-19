@@ -4,22 +4,22 @@ Using InStockPy, you can check weather any item is in stock by using keywords to
 
 ## Installation
 
-######  Python 3+ required
+###  Python 3+ required
 `pip install In-Stock-Py`
 
 ## Functions & Classes
 Class creation example
 `a = InStockPy.main()`
 
-##### Debug Mode
+#### Debug Mode
 Debug mode needs to be called before any other function in order for it to work
 `a.debug(<Bool>)` 
 
-##### Headless mode
+#### Headless mode
 Set this to true if you dont want to see the chrome window when the script is checking an item.
 `a.headless(<Bool>)`
 
-##### Define Keywords for an in stock item
+#### Define Keywords for an in stock item
 Put keyword here that mean an item is in stock.
 `a.defInStockKeywords(["add to cart","in stock"])`
 
@@ -34,12 +34,12 @@ Set path to 'default' if you want to use the default sound.
 #### Use proxies
 `a.useProxy(<Bool>, r"C:\path\to\prox.txt",<int [amount of times to reuse proxy]>)`
 
-#### Check if in stock
+### Check if in stock
 Set link that you want to check.
 Returns <Bool>, True = In Stock, False = Out of stock, None = no keywords found on page
 `a.checkInStock(r'https://link-to-product.com')`
 
-#### Final cleanup
+### Final cleanup
 `a.cleanup()` Closes webdriver, open threads, etc.
 
 ## Usage Wthout Loops
