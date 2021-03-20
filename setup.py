@@ -13,8 +13,8 @@ setup(
   version = '0.1.5',      # Start with a small number and increase it with every change you make
   license='MIT',        # Chose a license from here: https://help.github.com/articles/licensing-a-repository
   description = 'Checks if an item is in stock based off of keywords.',   # Give a short description about your library
-  long_description=long_description,
   long_description_content_type="text/markdown",
+  long_description=long_description,
   author = 'Stephan Yazvinski',                   # Type in your name
   author_email = 'syazivnski@gmail.com',      # Type in your E-Mail
   url = 'https://github.com/Syazvinski/InStockPy',   # Provide either the link to your github or to your website
