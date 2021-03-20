@@ -3,7 +3,6 @@
 Using InStockPy, you can check weather any item is in stock by using keywords to determine if an item is in stock. InStockPy has support for proxies to bypass anti bot protection.
 - [InStockPy](#instockpy)
   * [Installation](#installation)
-    + [Python 3+ required](#python-3--required)
   * [Usage Without Loops](#usage-without-loops)
   * [Usage With Loops](#usage-with-loops)
   * [Functions & Classes](#functions---classes)
@@ -21,7 +20,7 @@ Using InStockPy, you can check weather any item is in stock by using keywords to
 
 ## Installation
 
-Python 3+ required
+#####Python 3+ required
 `pip install In-Stock-Py`
 
 ## Functions & Classes
