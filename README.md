@@ -18,7 +18,6 @@ Using InStockPy, you can check weather any item is in stock by using keywords to
   * [Contributing](#contributing)
   * [License](#license)
 
-<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
 
 ## Installation
 
