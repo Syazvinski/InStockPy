@@ -20,7 +20,8 @@ Using InStockPy, you can check weather any item is in stock by using keywords to
 
 ## Installation
 
-#####Python 3+ required
+##### Python 3+ required
+
 `pip install In-Stock-Py`
 
 ## Functions & Classes
