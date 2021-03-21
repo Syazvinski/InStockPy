@@ -24,40 +24,6 @@ Using InStockPy, you can check weather any item is in stock by using keywords to
 
 `pip install In-Stock-Py`
 
-## Functions & Classes
-Class creation example
-`a = InStockPy.main()`
-
-##### Debug Mode
-Debug mode needs to be called before any other function in order for it to work
-`a.debug(<Bool>)` 
-
-##### Headless mode
-Set this to true if you dont want to see the chrome window when the script is checking an item.
-`a.headless(<Bool>)`
-
-##### Define Keywords for an in stock item
-Put keyword here that mean an item is in stock.
-`a.defInStockKeywords(["add to cart","in stock"])`
-
-##### Define Keywords for an out of stock item
-Put keyword here that mean an item is out of stock.
-`a.defInStockKeywords(["unavaliable","out of stock"])`
-
-##### Sound notifiations when an item is in stock
-Set path to 'default' if you want to use the default sound.
-`a.audioCue(<Bool>,'C:\path\to\mp3')`
-
-##### Use proxies
-`a.useProxy(<Bool>, r"C:\path\to\prox.txt",<int [amount of times to reuse proxy]>)`
-
-##### Check if in stock
-Set link that you want to check.
-Returns <Bool>, True = In Stock, False = Out of stock, None = no keywords found on page
-`a.checkInStock(r'https://link-to-product.com')`
-
-##### Final cleanup
-`a.cleanup()` Closes webdriver, open threads, etc.
 
 ## Usage Wthout Loops
 
@@ -116,6 +82,40 @@ while True:
     print(a.checkInStock(r'https://link-to-product.com'))
 ````
 
+## Functions & Classes
+Class creation example
+`a = InStockPy.main()`
+
+##### Debug Mode
+Debug mode needs to be called before any other function in order for it to work
+`a.debug(<Bool>)` 
+
+##### Headless mode
+Set this to true if you dont want to see the chrome window when the script is checking an item.
+`a.headless(<Bool>)`
+
+##### Define Keywords for an in stock item
+Put keyword here that mean an item is in stock.
+`a.defInStockKeywords(["add to cart","in stock"])`
+
+##### Define Keywords for an out of stock item
+Put keyword here that mean an item is out of stock.
+`a.defInStockKeywords(["unavaliable","out of stock"])`
+
+##### Sound notifiations when an item is in stock
+Set path to 'default' if you want to use the default sound.
+`a.audioCue(<Bool>,'C:\path\to\mp3')`
+
+##### Use proxies
+`a.useProxy(<Bool>, r"C:\path\to\prox.txt",<int [amount of times to reuse proxy]>)`
+
+##### Check if in stock
+Set link that you want to check.
+Returns <Bool>, True = In Stock, False = Out of stock, None = no keywords found on page
+`a.checkInStock(r'https://link-to-product.com')`
+
+##### Final cleanup
+`a.cleanup()` Closes webdriver, open threads, etc.
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change. Add me on discord `Zexter#0323`
