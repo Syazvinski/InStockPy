@@ -13,7 +13,7 @@ a.defInStockKeywords(["delivery","in stock","add to cart"])
 a.defOutStockKeywords(["sold out","out of stock","coming soon"])
 
 #check if in stock and print result
-print(a.checkInStock(r'https://link-to-product.com')))
+print(a.checkInStock(r'https://link-to-product.com'))
 
 #preforming final cleanup
 a.cleanup() 

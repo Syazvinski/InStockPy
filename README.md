@@ -78,7 +78,7 @@ a.defInStockKeywords(["delivery","in stock","add to cart"])
 a.defOutStockKeywords(["sold out","out of stock","coming soon"])
 
 #check if in stock and print result
-print(a.checkInStock(r'https://link-to-product.com')))
+print(a.checkInStock(r'https://link-to-product.com'))
 
 #preforming final cleanup
 a.cleanup() 
@@ -112,7 +112,7 @@ while True:
     a.useProxy(True, r"C:\Users\proxies.txt",1)
 
     #check if in stock and print result
-    print(a.checkInStock(r'https://link-to-product.com')))
+    print(a.checkInStock(r'https://link-to-product.com'))
 ````
 
 
