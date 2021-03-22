@@ -13,7 +13,7 @@ from io import open
 setup(
   name = 'InStockPy',         # How you named your package folder (MyLib)
   packages = ['InStockPy'],   # Chose the same as "name"
-  version = '0.1.9',      # Start with a small number and increase it with every change you make
+  version = '0.2.1',      # Start with a small number and increase it with every change you make
   license='MIT',        # Chose a license from here: https://help.github.com/articles/licensing-a-repository
   description = 'Checks if an item is in stock at any link based off of specified keywords using selenium and proxys.',   # Give a short description about your library
   #long_description=long_description,
