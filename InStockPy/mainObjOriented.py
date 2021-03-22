@@ -44,6 +44,15 @@ class main:
         self.m = 0
         self.i = 0
 
+        #setting bools
+        self.debugBool = False
+
+        self.proxyBool = False  
+
+        self.headBool = False
+
+        self.audioCueBool = False
+
     def debug(self,debugBool):
         self.debugBool = debugBool
 
